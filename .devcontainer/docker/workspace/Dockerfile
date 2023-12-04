@@ -21,3 +21,6 @@ RUN api-get update \
     && useradd --uid ${USER_UID} --shell /bin/bash --gid ${USER_GID} -m{USERNAME} \
     && echo %${USER_GROUP_NAME} ALL=\(ALL\) NOPASSWORD:ALL > /etc/sudoers.d/${USER_GROUP_NAME} \
     && chmod 0440 /etc/sudoers.d/${USER_GROUP_NAME}
+
+## JAVAの環境構築
+ARG JAVA _VARSION=１８.０.2-amzn
