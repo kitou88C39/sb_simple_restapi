@@ -10,8 +10,11 @@ ARG USER_GROUP_NAME=workspace
 ARG USER_UID=1000
 ARG USER_GID=1000
 
+ARG PKG="git vim curl unzip zip"
+
 # イメージの起動時に実行するコマンドを指定
 SHELL [ "/bin/bash","-c" ]
 
 RUN api-get update \
-    &&  api-get install -y git vim curl unzip zip
+    &&  api-get install -y ${PKG} \
+    && grouapp --gid ${USER_GID} ${USER_GROUP_NAME}
