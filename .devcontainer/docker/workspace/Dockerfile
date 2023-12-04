@@ -27,4 +27,4 @@ ARG JAVA _VARSION=１８.０.2-amzn
 ARG GRADLE_VARSION=7.5
 
 RUN su ${USERNAME} --command \
-    "curl -s"
+    'curl -s "https//get.sdkman.io" | bash'
