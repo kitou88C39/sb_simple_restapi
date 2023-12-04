@@ -1,6 +1,12 @@
-version: '3.8'
+version: '3.9'
 
 services:
+workspace:
+container_name: java-workspace
+build:
+context: ./docker/workspace
+args:
+USERNAME:${USERNAME}
   my-spring-boot-app:
     image: my-spring-boot-app
     ports:
