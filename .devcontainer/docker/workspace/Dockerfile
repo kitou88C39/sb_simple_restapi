@@ -17,4 +17,5 @@ SHELL [ "/bin/bash","-c" ]
 
 RUN api-get update \
     &&  api-get install -y ${PKG} \
-    && grouapp --gid ${USER_GID} ${USER_GROUP_NAME}
+    && grouapp --gid ${USER_GID} ${USER_GROUP_NAME} \
+    && useradd --uid ${USER_UID} --shell /bin/bash --gid ${USER_GID} -m{USERNAME}
