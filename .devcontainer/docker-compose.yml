@@ -6,7 +6,11 @@ container_name: java-workspace
 build:
 context: ./docker/workspace
 args:
-USERNAME:${USERNAME}
+USERNAME:${USERNAME: -vscode}
+USER_GROUP_NAME:${USER_GROUP_NAME: -workspace}
+USER_UID:${USER_UID: -1000}
+USER_UID:${USER_UID: -1000}
+
   my-spring-boot-app:
     image: my-spring-boot-app
     ports:
