@@ -1,19 +1,17 @@
 version: '3.9'
 
 services:
-workspace:
-container_name: java-workspace
-build:
-context: ./docker/workspace
-args:
-USERNAME:${USERNAME: -vscode}
-USER_GROUP_NAME:${USER_GROUP_NAME: -workspace}
-USER_UID:${USER_UID: -1000}
-USER_UID:${USER_UID: -1000}
-
-  my-spring-boot-app:
-    image: my-spring-boot-app
+  workspace:
+    container_name: java-workspace
+    build:
+      context: ./docker/workspace
+      args:
+        USERNAME: ${USERNAME:-vscode}
+        USER_GROUP_NAME: ${USER_GROUP_NAME:-workspace}
+        USER_UID: ${USER_UID:-1000}
+        USER_GID: ${USER_GID:-1000}
+    tty: true
+    volumes:
+      - ../:/home/${USERNAME:-vscode}/workspace:cached
     ports:
-      - '8080:8080'
-    environment:
-      - SPRING_PROFILES_ACTIVE=default
+      - '5555:5555'
