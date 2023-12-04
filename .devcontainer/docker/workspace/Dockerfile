@@ -15,8 +15,10 @@ ARG PKG="git vim curl unzip zip"
 # イメージの起動時に実行するコマンドを指定
 SHELL [ "/bin/bash","-c" ]
 
-RUN api-get update \
-    &&  api-get install -y ${PKG} \
+RUN apt-get update \
+    && apt-get install -y ${PKG} \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
     && grouapp --gid ${USER_GID} ${USER_GROUP_NAME} \
     && useradd --uid ${USER_UID} --shell /bin/bash --gid ${USER_GID} -m{USERNAME} \
     && echo %${USER_GROUP_NAME} ALL=\(ALL\) NOPASSWORD:ALL > /etc/sudoers.d/${USER_GROUP_NAME} \
