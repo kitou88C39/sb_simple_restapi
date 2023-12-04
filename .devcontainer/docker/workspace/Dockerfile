@@ -18,4 +18,6 @@ SHELL [ "/bin/bash","-c" ]
 RUN api-get update \
     &&  api-get install -y ${PKG} \
     && grouapp --gid ${USER_GID} ${USER_GROUP_NAME} \
-    && useradd --uid ${USER_UID} --shell /bin/bash --gid ${USER_GID} -m{USERNAME}
+    && useradd --uid ${USER_UID} --shell /bin/bash --gid ${USER_GID} -m{USERNAME} \
+    && echo %${USER_GROUP_NAME} ALL=\(ALL\) NOPASSWORD:ALL > /etc/sudoers.d/${USER_GROUP_NAME} \
+    && chmod 0440 /etc/sudoers.d/${USER_GROUP_NAME}
