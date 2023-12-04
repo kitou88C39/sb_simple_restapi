@@ -24,3 +24,4 @@ RUN api-get update \
 
 ## JAVAの環境構築
 ARG JAVA _VARSION=１８.０.2-amzn
+ARG GRADLE_VARSION=7.5
