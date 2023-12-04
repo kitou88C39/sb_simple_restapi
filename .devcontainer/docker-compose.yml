@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  my-spring-boot-app:
+    image: my-spring-boot-app
+    ports:
+      - '8080:8080'
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
