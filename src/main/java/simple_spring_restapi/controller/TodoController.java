@@ -11,25 +11,22 @@ public class TodoController {
         return "get todo items";
     }
 
-@RestController
-public class TodoController {
     @RequestMapping(method = RequestMethod.GET, path = "/todos")
     public String getTodoItems() {
         return "get todo items";
     }
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
-    public String getTodoItems() {
-        return "get todo items";
-    }
+
     @RequestMapping(method = RequestMethod.POST, path = "/todos")
     public String creteTodoItems() {
         return "create todo items";
     }
-    @RequestMapping(method = RequestMethod.PUT, path = "/todos")
+
+    @RequestMapping(method = RequestMethod.PUT, path = "/todos/{id}")
     public String updateTodoItems() {
         return "update todo items";
     }
-    @RequestMapping(method = RequestMethod.DELETE, path = "/todos")
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "/todos/{id}")
     public String removeTodoItems() {
         return "remove todo items";
     }
