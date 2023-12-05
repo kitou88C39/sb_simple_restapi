@@ -21,16 +21,16 @@ public class TodoController {
     public String getTodoItems() {
         return "get todo items";
     }
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
-    public String getTodoItems() {
-        return "get todo items";
+    @RequestMapping(method = RequestMethod.POST, path = "/todos")
+    public String creteTodoItems() {
+        return "create todo items";
     }
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
-    public String getTodoItems() {
-        return "get todo items";
+    @RequestMapping(method = RequestMethod.PUT, path = "/todos")
+    public String updateTodoItems() {
+        return "update todo items";
     }
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
-    public String getTodoItems() {
-        return "get todo items";
+    @RequestMapping(method = RequestMethod.DELETE, path = "/todos")
+    public String removeTodoItems() {
+        return "remove todo items";
     }
 }
