@@ -23,14 +23,14 @@ public class TodoController {
     }
     @RequestMapping(method = RequestMethod.POST, path = "/todos")
     public String creteTodoItems() {
-        return "get todo items";
+        return "create todo items";
     }
     @RequestMapping(method = RequestMethod.PUT, path = "/todos")
     public String updateTodoItems() {
-        return "get todo items";
+        return "update todo items";
     }
     @RequestMapping(method = RequestMethod.DELETE, path = "/todos")
-    public String deleteTodoItems() {
-        return "get todo items";
+    public String removeTodoItems() {
+        return "remove todo items";
     }
 }
