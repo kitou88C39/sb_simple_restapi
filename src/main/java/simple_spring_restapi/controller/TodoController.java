@@ -6,12 +6,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TodoController {
+
     @RequestMapping(method = RequestMethod.GET, path = "/todos")
     public String getTodoItems() {
         return "get todo items";
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
+    @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
     public String getTodoItems() {
         return "get todo items";
     }
