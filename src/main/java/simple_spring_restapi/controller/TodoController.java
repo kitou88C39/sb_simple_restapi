@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TodoController {
 
-    private final List<TodoItem> _todoItems = new ArrayList<>(){
-        
-    }
+    private final List<TodoItem> _todoItems = new ArrayList<>() {
+        {
+            add(new TodoItem(1, "todo 1"));
+            add(new TodoItem(1, "todo 1"));
+            add(new TodoItem(id:1, title:"todo 1"));
+        }
+    };
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos")
     public String getTodoItems() {
