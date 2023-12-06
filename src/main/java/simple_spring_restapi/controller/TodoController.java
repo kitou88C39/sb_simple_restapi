@@ -11,9 +11,9 @@ public class TodoController {
 
     private final List<TodoItem> _todoItems = new ArrayList<>() {
         {
-            add(new TodoItem(1, "todo 1"));
-            add(new TodoItem(1, "todo 1"));
             add(new TodoItem(id:1, title:"todo 1"));
+            add(new TodoItem(id:2, title:"todo 2"));
+            add(new TodoItem(id:3, title:"todo 3"));
         }
     };
 
