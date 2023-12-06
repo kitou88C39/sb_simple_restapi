@@ -18,8 +18,8 @@ public class TodoController {
     };
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos")
-    public String getTodoItems() {
-        return "get todo items";
+    public List<TodoItem> getTodoItems() {
+        return _todoItems;
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
