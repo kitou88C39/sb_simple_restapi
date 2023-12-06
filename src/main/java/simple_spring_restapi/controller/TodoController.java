@@ -1,11 +1,17 @@
 package simple_spring_restapi.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TodoController {
+
+    private final List<TodoItem> _todoItems = new ArrayList<>(){
+        
+    }
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos")
     public String getTodoItems() {
