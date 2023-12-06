@@ -27,9 +27,12 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
-    public String getTodoItems(@PathVariable int id) {
-        TodoItem found = _todoItems.stream().filter(item -> item.getId() == id)
-        return "get todo items";
+    public TodoItem getTodoItems(@PathVariable int id) {
+        TodoItem found = _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
+        if (found == null) {
+            // return 404
+        }
+        return found;
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/todos")
