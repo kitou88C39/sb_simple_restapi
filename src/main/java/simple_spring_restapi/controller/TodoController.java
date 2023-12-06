@@ -36,7 +36,7 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "/todos")
-    public String creteTodoItems() {
+    public String creteTodoItems(@RequestBody TodoItem todoItem) {
         return "create todo items";
     }
 
