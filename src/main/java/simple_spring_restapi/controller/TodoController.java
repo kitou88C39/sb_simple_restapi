@@ -1,11 +1,14 @@
 package simple_spring_restapi.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import simple_spring_restapi.models.TodoItem;
 
 @RestController
 public class TodoController {
@@ -25,6 +28,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
     public String getTodoItems(@PathVariable int id) {
+        TodoItem found = _todoItems.stream().filter(item -> item.getId() == id)
         return "get todo items";
     }
 
