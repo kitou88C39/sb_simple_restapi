@@ -44,7 +44,13 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/todos/{id}")
-    public String updateTodoItems(@PathVariable int id) {
+    public String updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
+        TodoItem found = _getTodoItemById(id);
+        if (found == null) {
+            // return 404
+        }
+        todoItem.setId(found.getId());
+        _todoItems.remove(found);
         return "update todo items";
     }
 
