@@ -29,7 +29,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
     public TodoItem getTodoItems(@PathVariable int id) {
-        TodoItem found = _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
+        TodoItem found = _getTodoItemById(id);
         if (found == null) {
             // return 404
         }
@@ -53,7 +53,7 @@ public class TodoController {
         return "remove todo items";
     }
 
-    private TodoItem getTodoItemById(int id) {
+    private TodoItem _getTodoItemById(int id) {
         return _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
 
     }
