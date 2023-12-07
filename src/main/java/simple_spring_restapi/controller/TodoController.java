@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,7 @@ public class TodoController {
     public TodoItem getTodoItems(@PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
-            // return 404
+            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
         return found;
     }
@@ -51,7 +52,7 @@ public class TodoController {
     public todoItem updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
-            // return 404
+            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
         _todoItems.remove(found);
         _todoItems.add(todoItem);
@@ -63,7 +64,7 @@ public class TodoController {
     public void removeTodoItems(@PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
-            // return 404
+            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
         _todoItems.remove(found);
     }
