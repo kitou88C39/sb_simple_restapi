@@ -44,12 +44,17 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/todos/{id}")
-    public String updateTodoItems() {
+    public String updateTodoItems(@PathVariable int id) {
         return "update todo items";
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/todos/{id}")
     public String removeTodoItems() {
         return "remove todo items";
+    }
+
+    private TodoItem getTodoItemById(int id) {
+        return _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
+
     }
 }
