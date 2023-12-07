@@ -42,7 +42,7 @@ public class TodoController {
 
     @RequestMapping(method = RequestMethod.POST, path = "")
     public todoItem creteTodoItems(@RequestBody TodoItem todoItem) {
-        todoItem.setId(id:4);
+        todoItem.setId(_counter.incrementAndGet());
         _todoItems.add(todoItem);
         return todoItem;
     }
