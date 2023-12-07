@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import simple_spring_restapi.models.TodoItem;
 
 @RestController
-@RequestMapping(path = "/api/v1/todos")
+@RequestMapping(path = TodoController.BASE_URL)
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
 
@@ -24,12 +24,12 @@ public class TodoController {
         }
     };
 
-    @RequestMapping(method = RequestMethod.GET, path = "/todos")
+    @RequestMapping(method = RequestMethod.GET, path = "")
     public List<TodoItem> getTodoItems() {
         return _todoItems;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/todos/{id}")
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public TodoItem getTodoItems(@PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
@@ -38,14 +38,14 @@ public class TodoController {
         return found;
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/todos")
+    @RequestMapping(method = RequestMethod.POST, path = "")
     public todoItem creteTodoItems(@RequestBody TodoItem todoItem) {
         todoItem.setId(id:4);
         _todoItems.add(todoItem);
         return todoItem;
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/todos/{id}")
+    @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
     public todoItem updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
@@ -57,7 +57,7 @@ public class TodoController {
         return todoItem;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/todos/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
     public void removeTodoItems(@PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
