@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import simple_spring_restapi.models.TodoItem;
 
 @RestController
+@RequestMapping(path = "/api/v1/todos")
 public class TodoController {
+    public static final String BASE_URL = "/api/v1/todos";
 
     private final List<TodoItem> _todoItems = new ArrayList<>() {
         {
