@@ -57,8 +57,12 @@ public class TodoController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, path = "/todos/{id}")
-    public String removeTodoItems() {
-        return "remove todo items";
+    public void removeTodoItems(@PathVariable int id) {
+        TodoItem found = _getTodoItemById(id);
+        if (found == null) {
+            // return 404
+        }
+        _todoItems.remove(found);
     }
 
     private TodoItem _getTodoItemById(int id) {
