@@ -49,7 +49,6 @@ public class TodoController {
         if (found == null) {
             // return 404
         }
-        todoItem.setId(found.getId());
         _todoItems.remove(found);
         _todoItems.add(todoItem);
 
