@@ -2,6 +2,7 @@ package simple_spring_restapi.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,6 +16,7 @@ import simple_spring_restapi.models.TodoItem;
 @RequestMapping(path = TodoController.BASE_URL)
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
+    private final AtomicInteger _counter = new AtomicInteger();
 
     private final List<TodoItem> _todoItems = new ArrayList<>() {
         {
