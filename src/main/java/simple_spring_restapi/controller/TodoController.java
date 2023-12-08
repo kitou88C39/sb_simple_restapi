@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +19,8 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import simple_spring_restapi.models.TodoItem;
 
-@RestController
 @RequestMapping(path = TodoController.BASE_URL)
+@RestController
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
     private final AtomicInteger _counter = new AtomicInteger();
@@ -33,8 +34,9 @@ public class TodoController {
     };
 
     @RequestMapping(method = RequestMethod.GET, path = "")
-    public List<TodoItem> getTodoItems() {
-        return _todoItems;
+    @GetMapping()
+    public ResponseEntity<List<TodoItem>> getTodoItems() {
+        return ResponseEntity.ok(_todoItems);
     }
 
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
