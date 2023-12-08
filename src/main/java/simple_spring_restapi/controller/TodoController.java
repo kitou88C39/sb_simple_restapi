@@ -49,7 +49,7 @@ public class TodoController {
         todoItem.setId(_counter.incrementAndGet());
         _todoItems.add(todoItem);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}").bulidAndExpand(todoItem.getId()).toUri();
-        return ResponseEntity.created(null);
+        return ResponseEntity.created(location).body(todoItem);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
