@@ -33,8 +33,7 @@ public class TodoController {
         }
     };
 
-    @RequestMapping(method = RequestMethod.GET, path = "")
-    @GetMapping()
+    @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
         return ResponseEntity.ok(_todoItems);
     }
@@ -45,7 +44,7 @@ public class TodoController {
         if (found == null) {
             throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
-        return found;
+        return ResponseEntity.ok(found);
     }
 
     @RequestMapping(method = RequestMethod.POST, path = "")
