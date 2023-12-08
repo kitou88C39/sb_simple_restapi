@@ -27,7 +27,6 @@ import simple_spring_restapi.models.TodoItem;
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
     private final AtomicInteger _counter = new AtomicInteger();
-
     private final List<TodoItem> _todoItems = new ArrayList<>() {
         {
             add(new TodoItem(_counter.incrementAndGet(), title:"todo 1"));
