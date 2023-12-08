@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -59,7 +60,7 @@ public class TodoController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<void> updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
+    public ResponseEntity<?> updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
             throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
@@ -70,18 +71,17 @@ public class TodoController {
         return ResponseEntity.noContent().build();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, path = "/{id}")
-    public void removeTodoItems(@PathVariable int id) {
-        TodoItem found = _getTodoItemById(id);
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<?> removeTodoItems(@PathVariable int id) {
+        TodoItem found = _findTodoItemById(id);
         if (found == null) {
             throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
         _todoItems.remove(found);
-
         return ResponseEntity.noContent().build();
     }
 
-    private TodoItem _getTodoItemById(int id) {
+    private TodoItem _findTodoItemById(int id) {
         return _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
 
     }
