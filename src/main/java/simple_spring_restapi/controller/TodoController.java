@@ -74,15 +74,16 @@ public class TodoController {
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> removeTodoItems(@PathVariable int id) {
         TodoItem found = _findTodoItemById(id);
-        if (found == null) {
-            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
-        }
         _todoItems.remove(found);
         return ResponseEntity.noContent().build();
     }
 
     private TodoItem _findTodoItemById(int id) {
-        return _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
+        TodoItem found = _todoItems.stream().filter(item -> item.getId() == id).findAny().orElse(null);
 
+        if (found == null) {
+            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
+        }
+        return found;
     }
 }
