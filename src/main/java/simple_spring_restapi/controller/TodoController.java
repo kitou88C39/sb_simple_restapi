@@ -42,9 +42,7 @@ public class TodoController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<TodoItem> getTodoItems(@PathVariable int id) {
         TodoItem found = _findTodoItemById(id);
-        if (found == null) {
-            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
-        }
+
         return ResponseEntity.ok(found);
     }
 
@@ -62,9 +60,6 @@ public class TodoController {
     @PutMapping(path = "/{id}")
     public ResponseEntity<?> updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
-        if (found == null) {
-            throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
-        }
         _todoItems.remove(found);
         _todoItems.add(todoItem);
 
