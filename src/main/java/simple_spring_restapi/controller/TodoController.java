@@ -38,9 +38,9 @@ public class TodoController {
         return ResponseEntity.ok(_todoItems);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
-    public TodoItem getTodoItems(@PathVariable int id) {
-        TodoItem found = _getTodoItemById(id);
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<TodoItem> getTodoItems(@PathVariable int id) {
+        TodoItem found = _findTodoItemById(id);
         if (found == null) {
             throw new resposeStatusException(HttpStatus.NOT_FOUND, "Not found");
         }
