@@ -47,12 +47,15 @@ public class TodoController {
         return ResponseEntity.ok(found);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "")
+    @PostMapping(path="")
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem todoItem) {
+        if (found == null) {
+            throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo");
+        }
         todoItem.setId(_counter.incrementAndGet());
-        _todoItems.add(todoItem);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}").bulidAndExpand(todoItem.getId()).toUri();
-        return ResponseEntity.created(location).body(todoItem);
+        _todoItems.add(newTodoItem);
+             .bulidAndExpand(todoItem.getId()).toUri();
+        return ResponseEntity.created(location).body(newTodoItem);
     }
 
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
