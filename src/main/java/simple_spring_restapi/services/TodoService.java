@@ -4,4 +4,6 @@ import simple_spring_restapi.models.TodoItem;
 
 public interface TodoService {
     public TodoItem saveTodoItem(TodoItem todoItem);
+
+    public List<TodoItem> getTodoItems();
 }
