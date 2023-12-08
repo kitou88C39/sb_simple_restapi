@@ -48,8 +48,8 @@ public class TodoController {
 
     @PostMapping(path="")
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem todoItem) {
-        if (found == null) {
-            throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo");
+        if (Object.isNull(newTodoItem)) {
+            throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo item must not be null.");
         }
         todoItem.setId(_counter.incrementAndGet());
         _todoItems.add(newTodoItem);
