@@ -58,7 +58,7 @@ public class TodoController {
         return ResponseEntity.created(location).body(newTodoItem);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
+    @PutMapping(path = "/{id}")
     public ResponseEntity<void> updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
         TodoItem found = _getTodoItemById(id);
         if (found == null) {
