@@ -27,10 +27,12 @@ import simple_spring_restapi.services.TodoService;
 @RestController
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
+    private TodoService _todoService;
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
-        return ResponseEntity.ok(_todoItems);
+        List<TodoItem> todoItems = _todoService.getTodoItems();
+        return ResponseEntity.ok(todoItems);
     }
 
     @GetMapping(path = "/{id}")
