@@ -27,14 +27,6 @@ import simple_spring_restapi.services.TodoService;
 @RestController
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
-    // private final AtomicInteger _counter = new AtomicInteger();
-    // private final List<TodoItem> _todoItems = new ArrayList<>() {
-    // {
-    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 1"));
-    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 2"));
-    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 3"));
-    // }
-    // };
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
@@ -50,11 +42,7 @@ public class TodoController {
 
     @PostMapping(path="")
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem todoItem) {
-        // if (Object.isNull(newTodoItem)) {
-        //     throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo item must not be null.");
-        // }
-        // todoItem.setId(_counter.incrementAndGet());
-        // _todoItems.add(newTodoItem);
+        
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
              .bulidAndExpand(todoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
