@@ -37,8 +37,7 @@ public class TodoController {
 
     @GetMapping(path = "/{id}")
     public ResponseEntity<TodoItem> getTodoItems(@PathVariable int id) {
-        TodoItem found = _findTodoItemById(id);
-
+        TodoItem found = _todoService.getTodoItemById(id);
         return ResponseEntity.ok(found);
     }
 
