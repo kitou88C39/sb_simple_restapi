@@ -31,7 +31,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<TodoItem> getTodoItems() {
-        return null;
+        return this._todoItems;
     }
 
     @Override
