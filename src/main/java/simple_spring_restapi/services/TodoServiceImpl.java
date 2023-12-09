@@ -1,8 +1,10 @@
 package simple_spring_restapi.services;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import simple_spring_restapi.models.TodoItem;
@@ -36,7 +38,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem getTodoItemById(int id) {
-        return null;
+        TodoItem found = _findTodoItemById(id);
     }
 
     @Override
@@ -44,4 +46,11 @@ public class TodoServiceImpl implements TodoService {
         return null;
     }
 
+    private TodoItem _findTodoItemById(int id) {
+        Optional<TodoItem> found = _todoItems.stream().filter(item -> item.getId() == id).findAny();
+        if (!found.isPresent()) {
+            throw new resposeStatusException(HttpStatus.NOT_FOUND, reason:"Not found");
+        }
+        return found.get();
+    }
 }
