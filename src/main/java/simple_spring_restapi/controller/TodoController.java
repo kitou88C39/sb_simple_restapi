@@ -43,6 +43,7 @@ public class TodoController {
 
     @PostMapping(path="")
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem newTodoItem) {
+        TodoItem saveTodoItem = _todoService.saveTodoItem(newTodoItem);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
              .bulidAndExpand(todoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
