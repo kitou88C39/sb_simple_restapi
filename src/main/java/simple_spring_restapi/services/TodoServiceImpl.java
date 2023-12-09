@@ -37,9 +37,11 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public TodoItem getTodoItemById(int id) {
-        return found = _findTodoItemById(id);
-
+    public TodoItem updateTodoItem(int id, TodoItem todoItem) {
+        TodoItem found = findTodoItemById(id);
+        _todoItems.remove(found);
+        _todoItems.add(todoItem);
+        return todoItem;
     }
 
     @Override
