@@ -27,14 +27,14 @@ import simple_spring_restapi.services.TodoService;
 @RestController
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
-    private final AtomicInteger _counter = new AtomicInteger();
-    private final List<TodoItem> _todoItems = new ArrayList<>() {
-        {
-            add(new TodoItem(_counter.incrementAndGet(), title:"todo 1"));
-            add(new TodoItem(_counter.incrementAndGet(), title:"todo 2"));
-            add(new TodoItem(_counter.incrementAndGet(), title:"todo 3"));
-        }
-    };
+    // private final AtomicInteger _counter = new AtomicInteger();
+    // private final List<TodoItem> _todoItems = new ArrayList<>() {
+    // {
+    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 1"));
+    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 2"));
+    // add(new TodoItem(_counter.incrementAndGet(), title:"todo 3"));
+    // }
+    // };
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
