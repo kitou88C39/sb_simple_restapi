@@ -25,6 +25,8 @@ public class TodoServiceImpl implements TodoService {
         }
          todoItem.setId(_counter.incrementAndGet());
          _todoItems.add(TodoItem);
+
+         return todoItem;
     }
 
     @Override

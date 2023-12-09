@@ -41,8 +41,7 @@ public class TodoController {
     }
 
     @PostMapping(path="")
-    public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem todoItem) {
-        
+    public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem newTodoItem) {
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
              .bulidAndExpand(todoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
