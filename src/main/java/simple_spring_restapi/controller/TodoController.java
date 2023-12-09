@@ -55,6 +55,7 @@ public class TodoController {
         }
         todoItem.setId(_counter.incrementAndGet());
         _todoItems.add(newTodoItem);
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
              .bulidAndExpand(todoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
     }
