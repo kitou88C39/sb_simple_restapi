@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import simple_spring_restapi.models.TodoItem;
+import simple_spring_restapi.services.TodoService;
 
 @RequestMapping(path = TodoController.BASE_URL)
 @RestController
@@ -34,6 +35,7 @@ public class TodoController {
             add(new TodoItem(_counter.incrementAndGet(), title:"todo 3"));
         }
     };
+    private TodoService TodoService;
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
