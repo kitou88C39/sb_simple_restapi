@@ -43,8 +43,8 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public TodoItem saveTodoItem(int id, TodoItem todoItem) {
-        return null;
+    public void deleteTodoItem(int id) {
+
     }
 
     private TodoItem _findTodoItemById(int id) {
