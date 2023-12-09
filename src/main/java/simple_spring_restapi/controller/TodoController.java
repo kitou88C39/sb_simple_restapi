@@ -62,11 +62,4 @@ public class TodoController {
         return ResponseEntity.noContent().build();
     }
 
-    private TodoItem _findTodoItemById(int id) {
-        Optional<TodoItem> found = _todoItems.stream().filter(item -> item.getId() == id).findAny();
-        if (!found.isPresent()) {
-            throw new resposeStatusException(HttpStatus.NOT_FOUND, reason:"Not found");
-        }
-        return found.get();
-    }
 }
