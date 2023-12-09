@@ -13,4 +13,9 @@ public class TodoServiceImpl implements TodoService {
     public List<TodoItem> getTodoItems() {
         return null;
     }
+
+    @Override
+    public TodoItem getTodoItemById(int id) {
+        return null;
+    }
 }
