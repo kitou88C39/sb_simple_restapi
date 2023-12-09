@@ -45,15 +45,13 @@ public class TodoController {
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem newTodoItem) {
         TodoItem saveTodoItem = _todoService.saveTodoItem(newTodoItem);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
-             .bulidAndExpand(todoItem.getId()).toUri();
+             .bulidAndExpand(saveTodoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<?> updateTodoItems(@RequestBody TodoItem todoItem, @PathVariable int id) {
-        TodoItem found = _getTodoItemById(id);
-        _todoItems.remove(found);
-        _todoItems.add(todoItem);
+    public ResponseEntity<?> updateTodoItems(@RequestBody TodoItem newTodoItem, @PathVariable int id) {
+        _todoService.updateTodoItems(id, newTodoItem);
         return ResponseEntity.noContent().build();
     }
 
