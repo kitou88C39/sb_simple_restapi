@@ -1,5 +1,12 @@
 package simple_spring_restapi.services;
 
-public class TodoServiceImpl {
+import simple_spring_restapi.models.TodoItem;
+
+public class TodoServiceImpl implements TodoService {
+
+    @Override
+    public TodoItem saveTodoItem(TodoItem todoItem) {
+        return null;
+    }
 
 }
