@@ -35,7 +35,6 @@ public class TodoController {
             add(new TodoItem(_counter.incrementAndGet(), title:"todo 3"));
         }
     };
-    private TodoService todoService = new TodoServiceImpl();
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
