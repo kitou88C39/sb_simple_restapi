@@ -20,11 +20,11 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem saveTodoItem(TodoItem todoItem) {
-        if (Object.isNull(newTodoItem)) {
+        if (Object.isNull(todoItem)) {
         throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo item must not be null.");
         }
          todoItem.setId(_counter.incrementAndGet());
-         _todoItems.add(newTodoItem);
+         _todoItems.add(TodoItem);
     }
 
     @Override
