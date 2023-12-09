@@ -1,5 +1,6 @@
 package simple_spring_restapi.services;
 
+import java.util.List;
 import simple_spring_restapi.models.TodoItem;
 
 public class TodoServiceImpl implements TodoService {
@@ -16,6 +17,11 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem getTodoItemById(int id) {
+        return null;
+    }
+
+    @Override
+    public TodoItem saveTodoItem(int id, TodoItem todoItem) {
         return null;
     }
 }
