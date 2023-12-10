@@ -17,4 +17,7 @@ public class NotFoundException extends RuntimeException {
         super(message, cause);
     }
 
+    public NotFoundException(String message, Throwable cause, boolean enableSupprssion) {
+        super(message, cause, enableSupprssion);
+    }
 }
