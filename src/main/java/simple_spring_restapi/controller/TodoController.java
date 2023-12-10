@@ -57,8 +57,7 @@ public class TodoController {
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity<?> removeTodoItems(@PathVariable int id) {
-        TodoItem found = _findTodoItemById(id);
-        _todoItems.remove(found);
+        _todoService.deleteTodoItem(id);
         return ResponseEntity.noContent().build();
     }
 
