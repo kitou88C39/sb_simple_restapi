@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import simple_spring_restapi.controller.errors.NotFoundException;
 import simple_spring_restapi.models.TodoItem;
 
 @Service
@@ -25,7 +26,8 @@ public class TodoServiceImpl implements TodoService {
     public TodoItem saveTodoItem(TodoItem todoItem) {
         if (Object.isNull(todoItem.getTitle())) {
         throw new resposeStatusException(HttpStatus.BAD_REQUEST,reason: "Todo item must not be null.");
-        }
+            new NotFoundException("mememmm");
+    }
          todoItem.setId(_counter.incrementAndGet());
          _todoItems.add(TodoItem);
          return todoItem;
