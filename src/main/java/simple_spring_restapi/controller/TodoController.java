@@ -3,11 +3,7 @@ package simple_spring_restapi.controller;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.concurrent.atomic.AtomicInteger;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import simple_spring_restapi.models.TodoItem;
@@ -31,7 +26,8 @@ public class TodoController {
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
-        return ResponseEntity.ok(_todoService.getTodoItems());
+        List<TodoItem> todoItems = _todoService.getTodoItems();
+        return ResponseEntity.ok(todoItems);
     }
 
     @GetMapping(path = "/{id}")
