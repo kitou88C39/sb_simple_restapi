@@ -31,8 +31,7 @@ public class TodoController {
 
     @GetMapping(path = "")
     public ResponseEntity<List<TodoItem>> getTodoItems() {
-        List<TodoItem> todoItems = _todoService.getTodoItems();
-        return ResponseEntity.ok(todoItems);
+        return ResponseEntity.ok(_todoService.getTodoItems());
     }
 
     @GetMapping(path = "/{id}")
@@ -44,7 +43,7 @@ public class TodoController {
     @PostMapping(path="")
     public ResponseEntity<todoItem> creteTodoItems(@RequestBody TodoItem newTodoItem) {
         TodoItem saveTodoItem = _todoService.saveTodoItem(newTodoItem);
-        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path(path:"/{id}");
+        URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}");
              .bulidAndExpand(saveTodoItem.getId()).toUri();
         return ResponseEntity.created(location).body(newTodoItem);
     }
