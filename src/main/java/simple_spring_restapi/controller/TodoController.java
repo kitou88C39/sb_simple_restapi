@@ -1,9 +1,9 @@
 package simple_spring_restapi.controller;
 
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +22,7 @@ import simple_spring_restapi.services.TodoService;
 @RestController
 public class TodoController {
     public static final String BASE_URL = "/api/v1/todos";
+    @Autowired
     private TodoService _todoService;
 
     @GetMapping(path = "")
