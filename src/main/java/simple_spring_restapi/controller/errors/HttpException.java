@@ -17,4 +17,11 @@ public class HttpException extends RuntimeException {
         super(case);
     }
 
+    public HttpException (String message,Throwable case) {
+        super(message,case);
+    }
+
+    public HttpException (String message,Throwable case,boolean enableSupprssion) {
+        super(message,case,enableSupprssion);
+    }
 }
