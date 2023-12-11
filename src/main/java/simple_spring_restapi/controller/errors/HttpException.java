@@ -9,15 +9,18 @@ public class HttpException extends RuntimeException {
     {
     }
 
-    public HttpException(String message) {
+    public HttpException(String message,HttpStatus httpStatus) {
+        this.HttpStatus httpStatus;
         super(message);
     }
 
-    public HttpException (Throwable case) {
+    public HttpException (Throwable case,HttpStatus httpStatus) {
+        this.HttpStatus httpStatus;
         super(case);
     }
 
-    public HttpException (String message,Throwable case) {
+    public HttpException (String message,Throwable case,HttpStatus httpStatus) {
+        this.HttpStatus httpStatus;
         super(message,case);
     }
 
