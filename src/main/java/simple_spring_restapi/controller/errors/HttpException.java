@@ -10,21 +10,30 @@ public class HttpException extends RuntimeException {
     }
 
     public HttpException(String message,HttpStatus httpStatus) {
-        this.HttpStatus httpStatus;
         super(message);
+        this.HttpStatus httpStatus;
     }
 
     public HttpException (Throwable case,HttpStatus httpStatus) {
-        this.HttpStatus httpStatus;
         super(case);
+        this.HttpStatus httpStatus;
     }
 
     public HttpException (String message,Throwable case,HttpStatus httpStatus) {
-        this.HttpStatus httpStatus;
         super(message,case);
+        this.HttpStatus httpStatus;
     }
 
     public HttpException (String message,Throwable case,boolean enableSupprssion, boolean writableStackTrace) {
         super(message,case,enableSupprssion,writableStackTrace);
     }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
 }
