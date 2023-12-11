@@ -20,8 +20,8 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
 
     @ExceptionHandler(value = { BadRequestException.class })
     protected ResponseEntity<Object> handeleBadRequestException(BadRequestException ex, WebRequest request) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.NOT_FOUND);
-        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.BAD_FOUND);
+        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_FOUND, request);
 
     }
 }
