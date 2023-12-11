@@ -1,6 +1,7 @@
 package simple_spring_restapi.controller.errors;
 
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -17,9 +18,10 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
         return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), ex.getHttpStatus(), request);
     }
 
-    @ExceptionHandler(value = { MethodArgumentNotValidException.class })
-    protected ResponseEntity<Object> handeleNotFoundException(HttpException ex, WebRequest request) {
-        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getHttpStatus());
-        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), ex.getHttpStatus(), request);
+    @Override
+    protected ResponseEntity<Object> handeleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+            HttpHeaders headers, HttpStatus status, WebRequest request) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), HttpStatus.BAD_REQUEST);
+        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }
 }
