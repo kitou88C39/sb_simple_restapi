@@ -10,4 +10,5 @@ public class ErrorResponse {
         this.message = message;
         this.status = status;
     }
+
 }
