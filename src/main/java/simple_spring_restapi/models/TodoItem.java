@@ -1,18 +1,14 @@
 package simple_spring_restapi.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class TodoItem {
     private int id;
     private String title;
 
-    public TodoItem() {
-
-    }
-
-    public TodoItem(int id, String title) {
-        this.id = id;
-        this.title = title;
-    }
 }
