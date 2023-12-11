@@ -2,6 +2,7 @@ package simple_spring_restapi.controller.errors;
 
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class HttpException extends RuntimeException {
     private HttpStatus httpStatus;
 
@@ -24,16 +25,7 @@ public class HttpException extends RuntimeException {
         this.HttpStatus httpStatus;
     }
 
-    public HttpException (String message,Throwable case,boolean enableSupprssion, boolean writableStackTrace) {
+    public HttpException (String message,Throwable case,boolean enableSupprssion,boolean writableStackTrace) {
         super(message,case,enableSupprssion,writableStackTrace);
     }
-
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
-    }
-
-    public void setHttpStatus(HttpStatus httpStatus) {
-        this.httpStatus = httpStatus;
-    }
-
 }
