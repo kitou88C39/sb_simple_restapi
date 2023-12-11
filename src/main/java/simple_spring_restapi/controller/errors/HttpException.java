@@ -21,7 +21,7 @@ public class HttpException extends RuntimeException {
         super(message,case);
     }
 
-    public HttpException (String message,Throwable case,boolean enableSupprssion) {
-        super(message,case,enableSupprssion);
+    public HttpException (String message,Throwable case,boolean enableSupprssion, boolean writableStackTrace) {
+        super(message,case,enableSupprssion,writableStackTrace);
     }
 }

@@ -18,8 +18,8 @@ public class BadRequestException extends RuntimeException {
         super(message, cause);
     }
 
-    public BadRequestException(String message, Throwable cause, boolean enableSupprssion) {
-        super(message, cause, enableSupprssion);
+    public BadRequestException(String message, Throwable cause, boolean enableSupprssion, boolean writableStackTrace) {
+        super(message, cause, enableSupprssion, writableStackTrace);
     }
 
 }
