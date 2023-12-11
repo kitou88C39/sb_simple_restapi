@@ -14,12 +14,12 @@ public class RestResponseEntityExceptionHandler extends ResponseEntityExceptionH
     @ExceptionHandler(value = { NotFoundException.class, BadRequestException.class })
     protected ResponseEntity<Object> handeleNotFoundException(HttpException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getHttpStatus());
-        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), ex.getHttpStatus(), request);
     }
 
     @ExceptionHandler(value = { MethodArgumentNotValidException.class })
     protected ResponseEntity<Object> handeleNotFoundException(HttpException ex, WebRequest request) {
         ErrorResponse errorResponse = new ErrorResponse(ex.getMessage(), ex.getHttpStatus());
-        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+        return this.handeleExceptionInternal(ex, errorResponse, new HttpHeaders(), ex.getHttpStatus(), request);
     }
 }
