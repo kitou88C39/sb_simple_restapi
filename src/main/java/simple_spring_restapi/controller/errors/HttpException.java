@@ -1,5 +1,8 @@
 package simple_spring_restapi.controller.errors;
 
-public class HttpException {
+import org.springframework.http.HttpStatus;
+
+public class HttpException extends RuntimeException {
+    private HttpStatus httpStatus;
 
 }
