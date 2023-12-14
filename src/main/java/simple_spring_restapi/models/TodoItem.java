@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TodoItem {
-    @Column
+    @Column(name = "id", nullable = false)
     private int id;
     @NotBlank(message = "Title must not be blank.")
+    @Column(name = "id", nullable = false)
     private String title;
 
 }
