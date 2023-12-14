@@ -18,23 +18,23 @@ public class TodoServiceImpl implements TodoService {
     private TodoRepository _todoRepository;
 
     @Override
-    public Todo getTodoItemsById(int id) {
-        return todoDao.getTodo(id);
+    public TodoItem getTodoItemsById(int id) {
+        return null;
     }
 
     @Override
-    public List<Todo> getTodos() {
-        return todoDao.getTodos();
+    public List<TodoItem> getTodoItems() {
+        return null;
     }
 
     @Override
-    public Todo createTodo(Todo todo) {
-        return todoDao.createTodo(todo);
+    public Todo removeTodoItemById(int id) {
+
     }
 
     @Override
-    public Todo updateTodo(Todo todo) {
-        return todoDao.updateTodo(todo);
+    public TodoItem saveTodoItem(TodoItem todoItem) {
+        return _todoRepository.save(todoItem);
     }
 
     @Override
