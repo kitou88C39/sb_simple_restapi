@@ -19,7 +19,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem getTodoItemsById(int id) {
-        return null;
+        return _todoRepository.findById(id).get();
     }
 
     @Override
