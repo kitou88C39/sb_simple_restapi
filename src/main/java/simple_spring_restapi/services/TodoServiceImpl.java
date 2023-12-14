@@ -12,7 +12,6 @@ import com.juniordevmind.simplespringrestapi.models.TodoItem;
 import simple_spring_restapi.repositories.TodoRepositories;
 
 @Service
-@Primary
 public class TodoServiceImpl implements TodoService {
 
     @Autowired

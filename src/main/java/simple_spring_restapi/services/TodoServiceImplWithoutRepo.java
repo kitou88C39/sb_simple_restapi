@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -12,6 +13,7 @@ import simple_spring_restapi.controller.errors.NotFoundException;
 import simple_spring_restapi.models.TodoItem;
 
 @Service
+@Primary
 public class TodoServiceImplWithoutRepo implements TodoService {
     private final AtomicInteger _counter = new AtomicInteger();
     private final List<TodoItem> _todoItems = new ArrayList<>() {
