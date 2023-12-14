@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
+import org.webjars.NotFoundException;
 
 import com.juniordevmind.simplespringrestapi.models.TodoItem;
 
@@ -40,5 +41,13 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public TodoItem updateTodoItem(int id, TodoItem todoItem) {
         return _todoRepository.save(todoItem);
+    }
+
+    private TodoItem _findTodoItemById(int id) throws NotFoundException {
+        Optional<TodoItem> found = _todoRepository.findById(id);
+        if (!found.isPresent()) {
+            throw new NotFoundException("The todo item is not available");
+        }
+        return found.get();
     }
 }
