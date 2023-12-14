@@ -1,5 +1,7 @@
 package simple_spring_restapi.repositories;
 
-public class TodoRepositories {
+import com.juniordevmind.simplespringrestapi.models.TodoItem;
+
+public interface TodoRepositories extends JpaRepository<TodoItem, Integer> {
 
 }
