@@ -11,9 +11,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "todos", schema = "business")
 public class TodoItem {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.Auto)
     @Column(name = "id", nullable = false)
     private int id;
     @NotBlank(message = "Title must not be blank.")
