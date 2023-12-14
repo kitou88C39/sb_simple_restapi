@@ -24,7 +24,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public List<TodoItem> getTodoItems() {
-        return null;
+        return _todoRepository.findAll();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public void deleteTodo(int id) {
-        todoDao.deleteTodo(id);
+    public TodoItem updateTodoItem(int id, TodoItem todoItem) {
+        return null;
     }
 }
