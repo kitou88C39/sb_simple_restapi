@@ -29,7 +29,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public Todo removeTodoItemById(int id) {
-
+        _todoRepository.deleteById(id);
     }
 
     @Override
@@ -39,6 +39,6 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem updateTodoItem(int id, TodoItem todoItem) {
-        return null;
+        return _todoRepository.save(todoItem);
     }
 }
