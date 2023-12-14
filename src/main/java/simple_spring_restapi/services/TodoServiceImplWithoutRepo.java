@@ -12,7 +12,7 @@ import simple_spring_restapi.controller.errors.NotFoundException;
 import simple_spring_restapi.models.TodoItem;
 
 @Service
-public class TodoServiceImpl implements TodoService {
+public class TodoServiceImplWithoutRepo implements TodoService {
     private final AtomicInteger _counter = new AtomicInteger();
     private final List<TodoItem> _todoItems = new ArrayList<>() {
         {
